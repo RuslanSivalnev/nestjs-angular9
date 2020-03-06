@@ -1,0 +1,14 @@
+{
+
+  "nav_bar": {
+    "title": "Weather-app",
+    "go_to_weather": "Weather-page",
+    "go_to_table": "Table-page"
+  },
+  "weather_page": {
+    "title": "Weather-page"
+  },
+  "table_page": {
+    "title": "Table-page"
+  }
+}

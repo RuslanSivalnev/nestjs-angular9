@@ -1,1 +1,21 @@
-<router-outlet></router-outlet>
+<mat-toolbar color="primary"
+             fxLayoutAlign="space-between center">
+	<h1>{{'nav_bar.title' | translate}}</h1>
+	<div class="navigate">
+		<button mat-button
+		        routerLinkActive="active"
+		        [routerLinkActiveOptions]="{exact: true}"
+		        routerLink="/weather">
+			{{'nav_bar.go_to_weather' | translate}}
+		</button>
+		<button mat-button
+		        routerLinkActive="active"
+		        routerLink="/table">
+			{{'nav_bar.go_to_table' | translate}}
+		</button>
+	</div>
+</mat-toolbar>
+
+<mat-card>
+	<router-outlet></router-outlet>
+</mat-card>
