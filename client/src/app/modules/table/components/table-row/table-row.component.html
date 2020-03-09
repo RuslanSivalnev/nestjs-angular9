@@ -1,0 +1,11 @@
+<div *ngFor="let cell of row" >
+	<div [formGroup]="cell">
+		<mat-form-field>
+			<input matInput
+			       type="number"
+			       placeholder="number"
+			       formControlName='numb'>
+		</mat-form-field>
+	</div>
+</div>
+<ng-content></ng-content>

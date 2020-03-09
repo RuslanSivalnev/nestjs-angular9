@@ -1,0 +1,43 @@
+<h1>{{'table_page.title' | translate | titlecase}}</h1>
+<button mat-menu-item
+        (click)="addRow()">
+	<mat-icon>add</mat-icon>
+	<span>{{'table_page.add_row' | translate | titlecase}}</span>
+</button>
+<form [formGroup]="formG">
+	<div [formArrayName]="'items'">
+		<div *ngFor="let row of items.controls; let idxRow = index">
+			<div [formArrayName]="idxRow">
+				<app-table-row [row]="row.controls">
+					<button mat-icon-button
+					        [matMenuTriggerFor]="menu"
+					        aria-label="Example icon-button with a menu">
+						<mat-icon>more_vert</mat-icon>
+					</button>
+					<mat-menu #menu="matMenu">
+						<button mat-menu-item
+						        (click)="addCell(idxRow)">
+							<mat-icon>add</mat-icon>
+							<span>{{'table_page.add_cell' | translate }}</span>
+						</button>
+						<button mat-menu-item
+						        (click)="removeCell(idxRow)">
+							<mat-icon>delete</mat-icon>
+							<span>{{'table_page.remove_cell' | translate }}</span>
+						</button>
+						<button mat-menu-item
+						        (click)="calcSum(idxRow)">
+							<mat-icon>format_indent_decrease</mat-icon>
+							<span>{{'table_page.show_sum' | translate }}</span>
+						</button>
+						<button mat-menu-item
+						        (click)="calcMultiply(idxRow)">
+							<mat-icon>format_indent_decrease</mat-icon>
+							<span>{{'table_page.show_multiply' | translate }}</span>
+						</button>
+					</mat-menu>
+				</app-table-row>
+			</div>
+		</div>
+	</div>
+</form>

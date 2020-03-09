@@ -9,6 +9,16 @@
     "title": "Weather-page"
   },
   "table_page": {
-    "title": "Table-page"
+    "title": "Table-page",
+    "add_row": "Add row",
+    "add_cell": "Add cell",
+    "remove_cell": "Remove cell",
+    "show_sum": "Show sum",
+    "show_multiply": "Show multiply",
+    "notifications": {
+      "sum": "Result of sum a cells = ",
+      "multiply": "Cell multiplication result = "
+    }
+
   }
 }

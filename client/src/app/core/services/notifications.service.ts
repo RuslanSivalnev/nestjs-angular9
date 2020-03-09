@@ -19,14 +19,14 @@ export class NotificationsService {
 
   info(message: string) {
     this.show(message, {
-      duration: 2000,
+      duration: 5000,
       panelClass: 'info-notification-overlay'
     });
   }
 
   success(message: string) {
     this.show(message, {
-      duration: 2000,
+      duration: 3000,
       panelClass: 'success-notification-overlay'
     });
   }
