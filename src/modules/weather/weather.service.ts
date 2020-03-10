@@ -10,7 +10,11 @@ export class WeatherService {
   ) {
   }
 
-  postLocation(coordinates: ICoordinates) {
+  getDataFromLoc(coordinates: ICoordinates) {
     return this.httpService.get(`${WeatherApiConf.url}?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${WeatherApiConf.apiKey}`)
+  }
+
+  getDataFromCity(city: string) {
+    return this.httpService.get(`${WeatherApiConf.url}?q=${city}&appid=${WeatherApiConf.apiKey}`)
   }
 }

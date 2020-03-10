@@ -1,0 +1,15 @@
+<section fxLayout="row"
+         fxLayoutAlign="center center">
+	<mat-form-field [formGroup]="cityFg">
+		<input matInput
+		       type="text"
+		       formControlName='city'
+		       placeholder="City">
+	</mat-form-field>
+	<button mat-icon-button
+	>
+		<mat-icon color='primary'
+		          (click)="cityFg.valid && searchOfCity.emit(cityFg.value)">search
+		</mat-icon>
+	</button>
+</section>

@@ -1,2 +1,29 @@
-<p>weather works!</p>
 <h1>{{'weather_page.title' | translate}}</h1>
+
+<section fxLayout="row"
+         fxLayoutAlign="center center">
+	<mat-tab-group>
+		<mat-tab label="Share my location">
+			<app-from-navigator
+				(streamLocation)="streamLocation()"
+				(stopStreamLocation)="stopStreamLocation()"
+			></app-from-navigator>
+		</mat-tab>
+		<mat-tab label="City">
+			<app-from-city
+					[cityFg]="cityForm"
+					(searchOfCity)="searchOfCity($event)"
+			></app-from-city>
+		</mat-tab>
+		<mat-tab label="Lat & Lon">
+			<app-from-coord
+					[locationForm]="locationForm"
+					(searchLocation)="searchLocation($event)"
+			></app-from-coord>
+		</mat-tab>
+	</mat-tab-group>
+</section>
+
+<section class="result">
+	<h1>result</h1>
+</section>

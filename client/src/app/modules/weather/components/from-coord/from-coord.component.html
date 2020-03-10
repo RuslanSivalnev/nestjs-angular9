@@ -1,0 +1,27 @@
+<section fxLayout="row"
+         fxLayoutAlign="space-around center">
+	<div fxLayout="row"
+	     fxLayout.lt-sm="column"
+	     [formGroup]="locationForm">
+		<mat-form-field>
+			<input matInput
+			       type="text"
+			       formControlName="lat"
+			       placeholder="Lat">
+		</mat-form-field>
+		<mat-form-field>
+			<input matInput
+			       type="text"
+			       formControlName="lon"
+			       placeholder="Lon"
+			>
+		</mat-form-field>
+	</div>
+	<button mat-icon-button
+	>
+		<mat-icon color='primary'
+		          (click)="locationForm.valid && searchLocation.emit(locationForm.value)"
+		>search
+		</mat-icon>
+	</button>
+</section>
