@@ -1,0 +1,37 @@
+<section *ngIf="weatherResponse">
+	<h1 style="text-align: center" *ngIf="weatherResponse.sys.country">
+		{{'weather_page.country' | translate}} {{weatherResponse.sys.country}}
+	</h1>
+	<section fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-between center">
+		<mat-card fxFlex="47" fxLayoutAlign="space-around">
+			<div>
+				<img [src]="'http://openweathermap.org/img/wn/'+ weatherResponse.weather[0].icon +'@2x.png'" alt="">
+				<h2 style="text-align: center" *ngIf="weatherResponse.name">{{weatherResponse.name}}</h2>
+			</div>
+			<div fxLayout="column" fxLayoutAlign="space-around space-around">
+				<span>
+					{{'weather_page.temp' | translate}} {{weatherResponse.main.temp | number:'1.0-0'}}°
+				</span>
+				<span>
+					{{'weather_page.feels_like' | translate}} {{weatherResponse.main.feels_like | number:'1.0-0'}}°
+				</span>
+				<span style="font-style: italic ">
+					{{'weather_page.description' | translate}} {{weatherResponse.weather[0].description}}
+				</span>
+			</div>
+		</mat-card>
+		<mat-card fxFlex="47" fxLayout="column" fxLayoutAlign="space-around space-around">
+			<span>
+				{{'weather_page.wind_speed' | translate}} {{weatherResponse.wind.speed | number:'1.0-0'}} m/s
+			</span>
+			<span>
+				{{'weather_page.humidity' | translate}} {{weatherResponse.main.humidity | number:'1.0-0'}}%
+			</span>
+			<span>
+				{{'weather_page.pressure' | translate}} {{weatherResponse.main.pressure | number:'1.0-0'}} Pa
+			</span>
+		</mat-card>
+	</section>
+</section>
+
+

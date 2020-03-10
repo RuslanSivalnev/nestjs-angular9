@@ -12,7 +12,7 @@ export class WeatherController {
     this.appService.getDataFromLoc(coordinates)
       .subscribe(
         result => res.status(HttpStatus.OK).json([result.data]),
-        error => res.status(HttpStatus.NOT_FOUND).json(error)
+        _ => res.status(HttpStatus.OK).json([])
       );
   };
 
@@ -21,7 +21,7 @@ export class WeatherController {
     this.appService.getDataFromCity(city)
       .subscribe(
         result => res.status(HttpStatus.OK).json([result.data]),
-        error => res.status(HttpStatus.NOT_FOUND).json(error)
+        _ => res.status(HttpStatus.OK).json([])
       )
   }
 }

@@ -7,6 +7,7 @@ import {WeatherComponent} from './containers/weather.component';
 import {FromCityComponent} from './components/from-city/from-city.component';
 import {FromCoordComponent} from './components/from-coord/from-coord.component';
 import {FromNavigatorComponent} from './components/from-navigator/from-navigator.component';
+import { WeatherPresentationComponent } from './components/weather-presentation/weather-presentation.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {FromNavigatorComponent} from './components/from-navigator/from-navigator
     WeatherComponent,
     FromCityComponent,
     FromCoordComponent,
-    FromNavigatorComponent
+    FromNavigatorComponent,
+    WeatherPresentationComponent
   ],
   imports: [
     SharedModule,

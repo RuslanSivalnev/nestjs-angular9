@@ -6,7 +6,14 @@
     "go_to_table": "Table-page"
   },
   "weather_page": {
-    "title": "Weather-page"
+    "title": "Weather-page",
+    "temp": "Temp:",
+    "country": "Country:",
+    "feels_like": "Feels like:",
+    "wind_speed": "Wind speed:",
+    "humidity": "Humidity:",
+    "pressure": "Pressure:",
+    "description": "Description:"
   },
   "table_page": {
     "title": "Table-page",
