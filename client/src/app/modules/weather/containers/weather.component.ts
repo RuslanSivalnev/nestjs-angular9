@@ -13,6 +13,7 @@ export class WeatherComponent implements OnInit, OnDestroy {
   weatherResponse;
   cityForm: FormGroup;
   locationForm: FormGroup;
+  isStreamingLocation = false;
 
   constructor(
     private fb: FormBuilder,
@@ -60,12 +61,16 @@ export class WeatherComponent implements OnInit, OnDestroy {
   streamLocation() {
     this.streamLocation$ = this.weatherService.startWatchGeolocation()
       .subscribe(
-        res => this.weatherResponse = res,
+        res => {
+          this.weatherResponse = res;
+          this.isStreamingLocation = true;
+        },
         err => this.notificationService.error(err),
       );
   }
 
   stopStreamLocation() {
     this.streamLocation$.unsubscribe();
+    this.isStreamingLocation = false;
   }
 }

@@ -1,15 +1,15 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-from-navigator',
   templateUrl: './from-navigator.component.html',
   styleUrls: ['./from-navigator.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FromNavigatorComponent implements OnInit {
   @Output() streamLocation = new EventEmitter();
   @Output() stopStreamLocation = new EventEmitter();
-  toggle = false;
+  @Input() isStreamingLocation: boolean;
 
   constructor() {
   }
@@ -18,11 +18,9 @@ export class FromNavigatorComponent implements OnInit {
   }
 
   buttonHandler() {
-    if (!this.toggle) {
-      this.streamLocation.emit();
-    } else {
+    !this.isStreamingLocation ?
+      this.streamLocation.emit()
+      :
       this.stopStreamLocation.emit();
-    }
-    this.toggle = !this.toggle;
   }
 }

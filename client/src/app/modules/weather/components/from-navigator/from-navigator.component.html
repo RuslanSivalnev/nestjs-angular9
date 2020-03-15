@@ -2,6 +2,8 @@
          fxLayoutAlign="center center">
 	<button mat-icon-button
 	        (click)="buttonHandler()">
-		<mat-icon [ngClass]="toggle && 'pulse-animation'" [color]="toggle && 'primary'">location_on</mat-icon>
+		<mat-icon [ngClass]="isStreamingLocation && 'pulse-animation'"
+		          [color]="isStreamingLocation && 'primary'">location_on
+		</mat-icon>
 	</button>
 </section>

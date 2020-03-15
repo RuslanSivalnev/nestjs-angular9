@@ -9,7 +9,7 @@ services:
       - "4200:4200"
   server:
     build:
-      context: .
+      context: ./server
     container_name: backend-openweathermap
     restart: unless-stopped
     ports:

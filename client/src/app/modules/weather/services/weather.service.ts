@@ -1,26 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NotificationsService } from '../../../core/services/notifications.service';
 import { Observable, throwError } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class WeatherService {
 
-  constructor(private http: HttpClient, private notificationService: NotificationsService) {
+  constructor(private http: HttpClient) {
   }
 
 
   public getWeatherFromCity(city: string) {
-    return this.http.get('api/coord', { params: { city } })
+    return this.http.get(`${environment.apiUrl}/coord`, { params: { city } })
       .pipe(switchMap((res: Array<any>) => res.length ? res : throwError('City not found')));
   }
 
 
   public getWeatherFromLocation(coord) {
-    return this.http.post('api/coord', { ...coord })
+    return this.http.post(`${environment.apiUrl}/coord`, { ...coord })
       .pipe(switchMap((res: Array<any>) => res.length ? res : throwError('Invalid value entered')));
   }
 
